@@ -1,0 +1,18 @@
+Given the root of a binary search tree, a target value, and an integer k, return the k values in the BST that are closest to the target. You may return the answer in any order.
+
+You are guaranteed to have only one unique set of k values in the BST that are closest to the target.
+
+Input: root = [4,2,5,1,3], target = 3.714286, k = 2
+Output: [4,3]
+
+
+Solution:
+time: O(N log k) 
+space O(K+h)
+
+Instantiate the heap with "less close element first" strategy so that the heap contains the elements that are closest to the target.
+
+Use inorder traversal to traverse the tree following the direction Left -> Node -> Right.
+
+Push all elements into heap during the traversal, keeping the heap size less than or equal to k.
+As a result, the heap contains k elements that are closest to target. Convert it into a list and return.
